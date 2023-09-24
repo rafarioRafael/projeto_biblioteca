@@ -1,0 +1,25 @@
+<section>
+  <div class="div-container">
+    <div class="div-box">
+      <form class="example-form" (ngSubmit)="onSubmit()" #form="ngForm">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput name="username" required [(ngModel)]="login.username">
+              </mat-form-field></td>
+          </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="login.password">
+              </mat-form-field></td>
+          </tr>
+        </table>
+        <button mat-raised-button [disabled]="form.form.invalid">Login</button>
+      </form>
+    </div>
+  </div>
+</section>

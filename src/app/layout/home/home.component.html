@@ -1,0 +1,23 @@
+<header>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Biblioteca</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu_account" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu_account="matMenu" class="account-menu">
+      <button mat-icon-button class="botao-menu">
+        <mat-icon style="margin-right: 10px;">account_circle</mat-icon>Meu perfil
+      </button><br>
+      <button mat-icon-button class="botao-menu" (click)="fazerLogout()">
+        <mat-icon style="margin-right: 10px;">exit_to_app</mat-icon>Sair
+      </button><br>
+    </mat-menu>
+  </mat-toolbar>
+</header>
