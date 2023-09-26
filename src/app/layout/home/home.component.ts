@@ -8,7 +8,7 @@ import { AccountService } from 'src/app/account/shared/account.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  name = 'rafael'
   constructor(
     private router: Router,
     private accountService: AccountService
