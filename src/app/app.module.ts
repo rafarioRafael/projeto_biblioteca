@@ -16,13 +16,18 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { AboutComponent } from './layout/about/about.component';
+import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.component';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ListaClienteComponent
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { AboutComponent } from './layout/about/about.component';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    
+    MatCardModule
+
 
   ],
   providers: [],

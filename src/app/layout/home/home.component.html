@@ -25,9 +25,9 @@
 <mat-sidenav-container> 
   <mat-sidenav  #sidenav>
     <mat-nav-list>
-      <a mat-list-item >Cadastro de livros</a>
+      <a mat-list-item>Cadastro de livros</a>
       <a mat-list-item>Devolução de livros</a>
-      <a mat-list-item>Cadastro de clientes</a>
+      <a mat-list-item [routerLink]="['/clientes']">Clientes</a>
       <a mat-list-item [routerLink]="['/about']">Sobre</a>
     </mat-nav-list>
   </mat-sidenav>
