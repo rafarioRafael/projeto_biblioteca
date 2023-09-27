@@ -1,8 +1,9 @@
 <header>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
+    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+      <mat-icon >menu</mat-icon>
     </button>
+
     <span>Biblioteca</span>
     <span class="example-spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu_account" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
@@ -21,3 +22,18 @@
     </mat-menu>
   </mat-toolbar>
 </header>
+<mat-sidenav-container> 
+  <mat-sidenav opened #sidenav>
+    <mat-nav-list>
+      <a mat-list-item >Cadastro de livros</a>
+      <a mat-list-item>Devolução de livros</a>
+      <a mat-list-item>Cadastro de clientes</a>
+      <a mat-list-item>Sobre</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
