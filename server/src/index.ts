@@ -1,3 +1,9 @@
-import Server from "./models/models";
+import Server from "./models/server";
+import dotenv from 'dotenv';
 
-Server
+//configura dot.env
+dotenv.config();
+
+const server = new Server();
+
+server.listen();
