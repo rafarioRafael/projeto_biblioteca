@@ -18,6 +18,9 @@ import { MatListModule } from '@angular/material/list';
 import { AboutComponent } from './layout/about/about.component';
 import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.component';
 import { MatCardModule } from '@angular/material/card';
+import { EditarDeletarClienteComponent } from './layout/editar-deletar-cliente/editar-deletar-cliente.component';
+import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
+import { EditarDeletarLivroComponent } from './layout/editar-deletar-livro/editar-deletar-livro.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { MatCardModule } from '@angular/material/card';
     LoginComponent,
     HomeComponent,
     AboutComponent,
-    ListaClienteComponent
+    ListaClienteComponent,
+    EditarDeletarClienteComponent,
+    ListaLivroComponent,
+    EditarDeletarLivroComponent
 
   ],
   imports: [
