@@ -3,5 +3,5 @@ export interface Cliente {
     nome: string;
     sobrenome: string;
     email: string;
-    dataCriacao: Date;
+    dataNascimento: Date;
 }
