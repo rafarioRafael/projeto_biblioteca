@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-deletar-cliente',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class EditarDeletarClienteComponent {
 
+
+  constructor(public dialogRef: MatDialogRef<EditarDeletarClienteComponent>) {
+    
+  }
+
+  cancelar() {
+    this.dialogRef.close();
+  }
 }

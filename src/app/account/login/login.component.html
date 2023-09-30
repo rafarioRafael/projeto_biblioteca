@@ -6,7 +6,7 @@
           <tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Username</mat-label>
-                <input matInput name="username" required [(ngModel)]="login.username">
+                <input matInput name="username" required [(ngModel)]="login.username" autocomplete="off">
               </mat-form-field></td>
           </tr>
         </table>
@@ -14,7 +14,7 @@
           <tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="login.password">
+                <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="login.password" autocomplete="off">
               </mat-form-field></td>
           </tr>
         </table>
