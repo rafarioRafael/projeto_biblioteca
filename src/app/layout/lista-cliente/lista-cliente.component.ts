@@ -13,8 +13,9 @@ const listaClientes: Cliente[] = [
   { nome: "Lata", sobrenome: "Te Cbom", email: "rnemteconto123@gmail.com", dataNascimento: new Date() },
   { nome: "Rafael", sobrenome: "Miranda", email: "lata321@gmail.com", dataNascimento: new Date() },
   { nome: "sabrina", sobrenome: "sei lá", email: "sabrina.123@gmail.com", dataNascimento: new Date() },
-  { nome: "Marcela", sobrenome: "sei lá também", email: "oitudobem!!!@gmail.com", dataNascimento: new Date() },
+  { nome: "SEI LÁ", sobrenome: "sei lá também", email: "oitudobem!!!@gmail.com", dataNascimento: new Date() },
   { nome: "Nem", sobrenome: "Te conto", email: "nemtecontodenovo1232020@gmail.com", dataNascimento: new Date() },
+  { nome: "OI", sobrenome: "Te conto", email: "ssssssssssssssssssssssss@gmail.com", dataNascimento: new Date() },
 
 ];
 
