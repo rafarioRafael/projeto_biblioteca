@@ -1,5 +1,6 @@
 import express, { Application } from 'express';
 import routesClientes from '../routes/cliente.routes';
+import connection from '../db/connection';
 
 class Server{
     private app: Application;
@@ -7,9 +8,10 @@ class Server{
 
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || '3000';
+        this.port = process.env.PORT || '4000';
         this.middlewares();
         this.routes();
+        this.conectarDB();
     }
 
     listen() {
@@ -24,6 +26,13 @@ class Server{
 
     routes() {
         this.app.use('/api/clientes', routesClientes);
+    }
+
+    conectarDB(){
+        connection.connect((err) => {
+            if (err) throw err;
+            console.log('CONECTADO AO BANCO DE DADOS')
+        })
     }
 
 }
