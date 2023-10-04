@@ -5,39 +5,40 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { EditarDeletarClienteComponent } from '../editar-deletar-cliente/editar-deletar-cliente.component';
 import { MatDialog } from '@angular/material/dialog';
-
-const listaClientes: Cliente[] = [
-  { nome: "Rafael", sobrenome: "Miranda", email: "rafaelm@gmail.com", dataNascimento: new Date() },
-  { nome: "Nem", sobrenome: "Te conto", email: "rnemteconto123@gmail.com", dataNascimento: new Date() },
-  { nome: "Joao", sobrenome: "Sei la", email: "joaozinho@gmail.com", dataNascimento: new Date() },
-  { nome: "Lata", sobrenome: "Te Cbom", email: "rnemteconto123@gmail.com", dataNascimento: new Date() },
-  { nome: "Rafael", sobrenome: "Miranda", email: "lata321@gmail.com", dataNascimento: new Date() },
-  { nome: "sabrina", sobrenome: "sei lá", email: "sabrina.123@gmail.com", dataNascimento: new Date() },
-  { nome: "SEI LÁ", sobrenome: "sei lá também", email: "oitudobem!!!@gmail.com", dataNascimento: new Date() },
-  { nome: "Nem", sobrenome: "Te conto", email: "nemtecontodenovo1232020@gmail.com", dataNascimento: new Date() },
-  { nome: "OI", sobrenome: "Te conto", email: "ssssssssssssssssssssssss@gmail.com", dataNascimento: new Date() },
-
-];
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-lista-cliente',
   templateUrl: './lista-cliente.component.html',
   styleUrls: ['./lista-cliente.component.scss']
 })
-export class ListaClienteComponent implements AfterViewInit{
+export class ListaClienteComponent implements AfterViewInit {
   displayedColumns: string[] = ['nome', 'sobrenome', 'email', 'dataNascimento', 'acao'];
   dataSource: MatTableDataSource<Cliente>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource(listaClientes);
+  constructor(public dialog: MatDialog, private _clienteService: ClienteService) {
+    this.dataSource = new MatTableDataSource();
   }
-  
+
+  ngOnInit(): void {
+    this.obterClientes();
+  }
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  obterClientes() {
+    this._clienteService.getClientes().subscribe(data => {
+      console.log(data);
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
   }
 
   applyFilter(event: Event) {
