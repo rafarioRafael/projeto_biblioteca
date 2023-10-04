@@ -20,6 +20,7 @@ export class EditarDeletarClienteComponent {
       nome: ['', [Validators.required, Validators.maxLength(20)]],
       sobrenome: ['', [Validators.required, Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.email]],
+      endereco: ['', [Validators.required, Validators.maxLength(20)]],
       dataNascimento: [null, Validators.required]
     })
   }
@@ -38,6 +39,7 @@ export class EditarDeletarClienteComponent {
       nome: this.form.value.nome,
       sobrenome: this.form.value.sobrenome,
       email: this.form.value.email,
+      endereco: this.form.value.endereco,
       dataNascimento: this.form.value.dataNascimento
     }
   }

@@ -13,7 +13,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./lista-cliente.component.scss']
 })
 export class ListaClienteComponent implements AfterViewInit {
-  displayedColumns: string[] = ['nome', 'sobrenome', 'email', 'dataNascimento', 'acao'];
+  displayedColumns: string[] = ['nome', 'sobrenome', 'email', 'endereco', 'dataNascimento', 'acao'];
   dataSource: MatTableDataSource<Cliente>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
