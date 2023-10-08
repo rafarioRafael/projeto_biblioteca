@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+.total{
+  background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20221026/pngtree-paper-books-seamless-pattern-image_1435672.jpg);
+}
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -11,6 +17,68 @@
 //   padding: 5px;
 // }
 
+<<<<<<< HEAD
 mat-sidenav {
   width: 12%;
 }
+=======
+
+
+.meioPrimeiro{
+  margin: auto;
+  width: 600px;
+}
+
+.submeio{
+  width: auto;
+  margin: auto;
+  //background-color: aqua;
+  border-radius: 30px;
+  border: solid;
+  font-size: 20px;
+  margin-top: 10px;
+  background-color: #f5f5dc;
+}
+h1{
+  font-family: 'Dela Gothic One', cursive;
+}
+
+p{
+  margin: 30px;
+  font-family: 'Prata', serif;
+  font-size: 20px;
+  flex: 1 1  auto;
+  line-height: normal;
+}
+
+.meioduplo{
+  width: 600px;
+  margin: auto;
+  //background-color: aqua;
+  margin-top: 10px;
+  display:inline-flex;
+  margin: 10px;
+  flex: 1 1 auto;
+}
+
+.primeiro{
+  width: 300px;
+  border-radius: 30px;
+  border: solid;
+  margin: 10px;
+  background-color: #f5f5dc;
+}
+.segundo{
+  width: 300px;
+  border-radius: 30px;
+  border: solid;
+  margin: 10px;
+  height: 100%;
+  background-color: #f5f5dc;
+}
+
+.imagen{
+  
+}
+
+>>>>>>> 91ba70b11ba9d8c30084938155182b6be02b4d7a
