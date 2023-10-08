@@ -1,8 +1,9 @@
 import express, { Application } from 'express';
 import routesClientes from '../routes/cliente.routes';
 import connection from '../db/connection';
+import cors from 'cors';
 
-class Server{
+class Server {
     private app: Application;
     private port: string;
 
@@ -21,14 +22,16 @@ class Server{
     }
 
     middlewares() {
+        this.app.use(cors())
         this.app.use(express.json());
     }
 
     routes() {
+
         this.app.use('/api/clientes', routesClientes);
     }
 
-    conectarDB(){
+    conectarDB() {
         connection.connect((err) => {
             if (err) throw err;
             console.log('CONECTADO AO BANCO DE DADOS')

@@ -5,39 +5,46 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { EditarDeletarClienteComponent } from '../editar-deletar-cliente/editar-deletar-cliente.component';
 import { MatDialog } from '@angular/material/dialog';
-
-const listaClientes: Cliente[] = [
-  { nome: "Rafael", sobrenome: "Miranda", email: "rafaelm@gmail.com", dataNascimento: new Date() },
-  { nome: "Nem", sobrenome: "Te conto", email: "rnemteconto123@gmail.com", dataNascimento: new Date() },
-  { nome: "Joao", sobrenome: "Sei la", email: "joaozinho@gmail.com", dataNascimento: new Date() },
-  { nome: "Lata", sobrenome: "Te Cbom", email: "rnemteconto123@gmail.com", dataNascimento: new Date() },
-  { nome: "Rafael", sobrenome: "Miranda", email: "lata321@gmail.com", dataNascimento: new Date() },
-  { nome: "sabrina", sobrenome: "sei lá", email: "sabrina.123@gmail.com", dataNascimento: new Date() },
-  { nome: "asdasdasd343432432423", sobrenome: "sei 234234234 também", email: "oitudobem!!!@gmail.com", dataNascimento: new Date() },
-  { nome: "Nem", sobrenome: "Te conto", email: "nemtecontodenovo1232020@gmail.com", dataNascimento: new Date() },
-
-];
+import { ClienteService } from 'src/app/services/cliente.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-lista-cliente',
   templateUrl: './lista-cliente.component.html',
   styleUrls: ['./lista-cliente.component.scss']
 })
-export class ListaClienteComponent implements AfterViewInit{
-  displayedColumns: string[] = ['nome', 'sobrenome', 'email', 'dataNascimento', 'acao'];
+export class ListaClienteComponent implements AfterViewInit {
+  displayedColumns: string[] = ['nome', 'sobrenome', 'email', 'endereco', 'dataNascimento', 'acao'];
   dataSource: MatTableDataSource<Cliente>;
+  loading: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource(listaClientes);
+  constructor(public dialog: MatDialog, private _clienteService: ClienteService, private _snackBar: MatSnackBar) {
+    this.dataSource = new MatTableDataSource();
   }
-  
+
+  ngOnInit(): void {
+    this.obterClientes();
+  }
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
+  obterClientes() {
+    this.loading = true;
+    this._clienteService.getClientes().subscribe(data => {
+      this.loading = false;
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+  }
+
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -48,13 +55,32 @@ export class ListaClienteComponent implements AfterViewInit{
     }
   }
 
-  addEditarCliente() {
+  addEditarCliente(id?: number) {
     const dialogRef = this.dialog.open(EditarDeletarClienteComponent, {
       width: '550px',
-      disableClose: true
+      disableClose: true,
+      data: { id: id }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if(result) {
+        this.obterClientes();
+      }
     });
   }
+
+  deletarCliente(id: number) {
+    this.loading = true;
+    this._clienteService.deleteCliente(id).subscribe(() => {
+      this.obterClientes();
+      this.openSnackBar();
+    })
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Cliente excluido(a)', '', {
+      duration: 2000
+
+    });
+  }
+
 }

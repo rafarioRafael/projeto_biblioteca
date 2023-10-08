@@ -18,7 +18,7 @@ const getCliente = (req, res) => {
     connection_1.default.query('SELECT * FROM tbl_clientes WHERE id_clientes = ?', id, (err, data) => {
         if (err)
             throw err;
-        res.json(data[0]);
+        res.status(200).json(data[0]);
     });
 };
 exports.getCliente = getCliente;

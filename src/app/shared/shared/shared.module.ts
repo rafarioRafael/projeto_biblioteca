@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+//Modulos
+import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http'
+
+
 //Angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,7 +23,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+
 
 @NgModule({
   declarations: [],
@@ -41,9 +50,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
-    
-    
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
+
+
   ],
   exports: [
     MatToolbarModule,
@@ -63,7 +76,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
+
   ]
 })
 export class SharedModule { }

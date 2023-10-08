@@ -1,4 +1,7 @@
-<h2 mat-dialog-title>Adicionar Cliente</h2>
+<div class="container">
+  <h2 mat-dialog-title>{{ operacao }} Cliente</h2>
+  <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+</div>
 <form [formGroup]="form" (ngSubmit)="addEditarCliente()">
   <mat-dialog-content class="mat-typography">
     <div class="row">
@@ -8,7 +11,8 @@
           <input formControlName="nome" matInput placeholder="Insira o nome" autocomplete="off">
         </mat-form-field>
         <div class="error">
-          <span *ngIf="form.get('nome')?.hasError('required') && form.get('nome')?.touched">Nome com valor <strong>Inválido</strong></span>
+          <span *ngIf="form.get('nome')?.hasError('required') && form.get('nome')?.touched">Nome com valor
+            <strong>Inválido</strong></span>
           <span *ngIf="form.get('nome')?.hasError('maxlength')">Nome com muitas caracteres</span>
         </div>
       </div>
@@ -18,7 +22,8 @@
           <input formControlName="sobrenome" matInput placeholder="Insira o sobrenome" autocomplete="off">
         </mat-form-field>
         <div class="error">
-          <span *ngIf="form.get('sobrenome')?.hasError('required') && form.get('sobrenome')?.touched">Sobrenome com valor <strong>Inválido</strong></span>
+          <span *ngIf="form.get('sobrenome')?.hasError('required') && form.get('sobrenome')?.touched">Sobrenome com
+            valor <strong>Inválido</strong></span>
           <span *ngIf="form.get('sobrenome')?.hasError('maxlength')">Sobrenome com muitas caracteres</span>
         </div>
       </div>
@@ -30,8 +35,22 @@
           <input formControlName="email" matInput placeholder="Insira o e-mail" autocomplete="off">
         </mat-form-field>
         <div class="error">
-          <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">E-mail com valor <strong>Inválido</strong></span>
+          <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">E-mail com valor
+            <strong>Inválido</strong></span>
           <span *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">E-mail inválido</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Endereço</mat-label>
+          <input formControlName="endereco" matInput placeholder="Insira o endereço" autocomplete="off">
+        </mat-form-field>
+        <div class="error">
+          <span *ngIf="form.get('endereco')?.hasError('required') && form.get('endereco')?.touched">Endereço sem
+            <strong>valor</strong></span>
+          <span *ngIf="form.get('endereco')?.hasError('maxlength')">Endereço com muitas caracteres</span>
         </div>
       </div>
     </div>
@@ -44,7 +63,8 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <div class="error">
-          <span *ngIf="form.get('dataNascimento')?.hasError('required') && form.get('dataNascimento')?.touched">Data de nascimento com valor <strong>Inválido</strong></span>
+          <span *ngIf="form.get('dataNascimento')?.hasError('required') && form.get('dataNascimento')?.touched">Data de
+            nascimento com valor <strong>Inválido</strong></span>
         </div>
       </div>
     </div>
