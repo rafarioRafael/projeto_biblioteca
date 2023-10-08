@@ -28,4 +28,12 @@ export class ClienteService {
   addCliente(cliente: Cliente): Observable<void> {
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`, cliente);
   }
+
+  getCliente(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
+
+  updateCliente(id: number, cliente: Cliente): Observable<void> {
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`, cliente);
+  }
 }

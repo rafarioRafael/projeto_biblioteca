@@ -55,13 +55,16 @@ export class ListaClienteComponent implements AfterViewInit {
     }
   }
 
-  addEditarCliente() {
+  addEditarCliente(id?: number) {
     const dialogRef = this.dialog.open(EditarDeletarClienteComponent, {
       width: '550px',
-      disableClose: true
+      disableClose: true,
+      data: { id: id }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if(result) {
+        this.obterClientes();
+      }
     });
   }
 

@@ -1,3 +1,8 @@
+mat-spinner {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
 mat-form-field {
     width: 100%;
 }
@@ -15,4 +20,9 @@ mat-form-field {
 .error {
     color: rgb(129, 13, 13);
     margin-top: -20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
 }
