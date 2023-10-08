@@ -37,6 +37,18 @@
     </div>
     <div class="row">
       <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Endereço</mat-label>
+          <input formControlName="endereco" matInput placeholder="Insira o endereço" autocomplete="off">
+        </mat-form-field>
+        <div class="error">
+          <span *ngIf="form.get('endereco')?.hasError('required') && form.get('endereco')?.touched">Endereço sem <strong>valor</strong></span>
+          <span *ngIf="form.get('endereco')?.hasError('maxlength')">Endereço com muitas caracteres</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
         <mat-form-field>
           <mat-label>Data de nascimento</mat-label>
           <input [max]="maxDate" formControlName="dataNascimento" matInput [matDatepicker]="picker">

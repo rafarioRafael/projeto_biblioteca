@@ -1,10 +1,11 @@
 <mat-toolbar>
-    <span>
+    <span style="padding: 10px;">
         <mat-icon [routerLink]="['/home']" style="cursor: pointer;">arrow_back</mat-icon>
     </span>
     <span>Clientes</span>
 </mat-toolbar>
-<mat-card>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<mat-card *ngIf="!loading">
     <mat-card-content>
         <mat-form-field>
             <mat-label>Filtro</mat-label>
@@ -30,15 +31,15 @@
             </ng-container>
             <ng-container matColumnDef="dataNascimento">
                 <th mat-header-cell *matHeaderCellDef> Data de nascimento </th>
-                <td mat-cell *matCellDef="let element"> {{element.dataNascimento | date: 'dd/MM/yyyy'}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.datanascimento | date: 'dd/MM/yyyy'}} </td>
             </ng-container>
             <ng-container matColumnDef="acao">
                 <th mat-header-cell *matHeaderCellDef> Ação </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="mini-fab" mat-mini-fab color="primary" matTooltip="Editar cliente" aria-label="Example icon button with a menu icon">
+                    <button class="mini-fab" mat-mini-fab color="primary" matTooltip="Editar cliente">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button class="mini-fab" mat-mini-fab color="warn" matTooltip="Deletar cliente" aria-label="Example icon button with a menu icon">
+                    <button class="mini-fab" (click)="deletarCliente(element.id_clientes)" mat-mini-fab color="warn" matTooltip="Deletar cliente">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>
@@ -46,7 +47,6 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
-            aria-label="Select page of users"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </mat-card-content>
 </mat-card>
