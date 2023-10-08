@@ -1,8 +1,11 @@
+
+
 <header>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+    <button  class="example-icon" (click)="sidenav.toggle()" mat-icon-button>
       <mat-icon >menu</mat-icon>
     </button>
+    
 
     <span>Biblioteca</span>
     <span class="example-spacer"></span>
@@ -22,8 +25,10 @@
     </mat-menu>
   </mat-toolbar>
 </header>
-<mat-sidenav-container> 
-  <mat-sidenav  #sidenav>
+
+
+  <mat-sidenav-container> 
+  <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item>Cadastro de livros</a>
       <a mat-list-item [routerLink]="['/livros']">Livros</a>
@@ -34,9 +39,63 @@
       
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <div style="height: 88vh;">
-      <router-outlet></router-outlet>
+  <mat-sidenav-content style="height: 88vh;">
+<div class="total">
+  <div class="meioPrimeiro">
+    <div class="imagen">
+      <img mat-card-image src="https://images.pexels.com/photos/207636/pexels-photo-207636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      alt="Deu certo" style="height: 400px; margin-top: 5px;">
     </div>
+    
+    
+      <div class="submeio">
+        <h1 style="text-align: center;">Nossa Historia</h1>
+        <p>
+          A nossa Biblioteca comeco nos ano de 2015, com 
+          uma estrutura pequena em Guarulhos perto da Univers
+          idade da ung, em parceria com a faculdade alguns alunos pe
+          gam emprestados livros. mas isso funciona tambem para o publico a
+          berto fora da faculdade, a cada ano nos invova na nossa Biblioteca, 
+          temos uma variedade enormes de livros que pode te entreter, desde a div
+          ina comedia de dante aos apaixonado em Shaskeper. Visite-nos.
+        </p>
+      </div>
+      <div class="meioduplo">
+        <div class="primeiro"> 
+          <p>
+            What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been the industry's standard
+            dummy text ever since the 1500s, when an unknown printer took a galley
+            of type and scrambled it to make a type specimen book. It has survived
+            not only five centuries,
+        </p>
+      </div>
+  
+        <div class="segundo">
+          <p>
+            What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
+          and typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s,
+          </p>
+         </div>
+      </div>
+    </div>
+</div>
+
+ 
+   
+
+    
+     
+
+ 
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+
+
+
+
+
+

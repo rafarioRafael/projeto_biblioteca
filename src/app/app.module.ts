@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
 //Componentes criados
 import { LoginComponent } from './account/login/login.component';
 import { HomeComponent } from './layout/home/home.component';
@@ -12,6 +12,8 @@ import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.comp
 import { EditarDeletarClienteComponent } from './layout/editar-deletar-cliente/editar-deletar-cliente.component';
 import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
 import { EditarDeletarLivroComponent } from './layout/editar-deletar-livro/editar-deletar-livro.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 //Modulos
@@ -32,7 +34,11 @@ import { SharedModule } from './shared/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    MatSidenavModule,
+    MatGridListModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
