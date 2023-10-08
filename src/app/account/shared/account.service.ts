@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AccountService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar) { }
 
   login(user: any) {
     return new Promise((resolve) => {
@@ -18,11 +19,10 @@ export class AccountService {
           return false;
         } else {
           this.router.navigate(['']);
-          alert("Login feito")
           return true;
         }
       } else {
-        alert("Usuário ou senha incorretos");
+        this.openSnackBar();
         if (localStorage.getItem('token')) {
           localStorage.removeItem('token');
         } else {
@@ -37,5 +37,11 @@ export class AccountService {
       localStorage.removeItem('token')
       location.reload();
     }
+  }
+  openSnackBar() {
+    this._snackBar.open('Usuário ou senha incorretos', 'Tentar novamente', {
+      duration: 2000
+
+    });
   }
 }

@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cliente_routes_1 = __importDefault(require("../routes/cliente.routes"));
+const livro_routes_1 = __importDefault(require("../routes/livro.routes"));
 const connection_1 = __importDefault(require("../db/connection"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -26,6 +27,7 @@ class Server {
     }
     routes() {
         this.app.use('/api/clientes', cliente_routes_1.default);
+        this.app.use('/api/livros', livro_routes_1.default);
     }
     conectarDB() {
         connection_1.default.connect((err) => {
