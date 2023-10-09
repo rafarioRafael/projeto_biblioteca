@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 //Componentes criados
 import { LoginComponent } from './account/login/login.component';
 import { HomeComponent } from './layout/home/home.component';
-import { AboutComponent } from './layout/about/about.component';
 import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.component';
 import { EditarDeletarClienteComponent } from './layout/editar-deletar-cliente/editar-deletar-cliente.component';
 import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
@@ -17,18 +16,19 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 //Modulos
-import { SharedModule } from './shared/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
+import { SettingsComponent } from './layout/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    AboutComponent,
     ListaClienteComponent,
     EditarDeletarClienteComponent,
     ListaLivroComponent,
-    EditarDeletarLivroComponent
+    EditarDeletarLivroComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

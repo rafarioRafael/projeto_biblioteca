@@ -1,0 +1,24 @@
+<main class="mat-app-background">
+    <body>
+        <mat-toolbar color="primary">
+            <span style="padding: 10px;">
+                <mat-icon [routerLink]="['/home']" style="cursor: pointer;">arrow_back</mat-icon>
+            </span>
+            <span>Configuração</span>
+        </mat-toolbar>
+        <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile>
+                <mat-slide-toggle  [(ngModel)]="isDarkThemeActive">DARK-MODE!</mat-slide-toggle>
+                <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Tema</button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="onChange(false)">Light</button>
+                    <button mat-menu-item (click)="onChange(true)">Dark</button>
+                </mat-menu>
+
+            </mat-grid-tile>
+            <mat-grid-tile>2</mat-grid-tile>
+            <mat-grid-tile>3</mat-grid-tile>
+            <mat-grid-tile>4</mat-grid-tile>
+        </mat-grid-list>
+    </body>
+</main>
