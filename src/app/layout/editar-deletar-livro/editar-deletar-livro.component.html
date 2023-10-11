@@ -1,1 +1,89 @@
-<p>editar-deletar-livro works!</p>
+<div class="container">
+    <h2 mat-dialog-title>{{ operacao }} Cliente</h2>
+    <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="addEditarLivro()">
+    <mat-dialog-content class="mat-typography">
+      <div class="row">
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Titulo do livro</mat-label>
+            <input formControlName="titulo" matInput placeholder="Insira o titulo" autocomplete="off">
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('titulo')?.hasError('required') && form.get('titulo')?.touched">Titulo com valor
+              <strong>Inválido</strong></span>
+            <span *ngIf="form.get('titulo')?.hasError('maxlength')">Titulo com muitas caracteres</span>
+          </div>
+        </div>
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Autor</mat-label>
+            <input formControlName="autor" matInput placeholder="Insira o autor" autocomplete="off">
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('autor')?.hasError('required') && form.get('autor')?.touched">Autor com
+              valor <strong>Inválido</strong></span>
+            <span *ngIf="form.get('autor')?.hasError('maxlength')">Autor com muitas caracteres</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Editora</mat-label>
+            <input formControlName="editora" matInput placeholder="Insira a editora" autocomplete="off">
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('editora')?.hasError('required') && form.get('editora')?.touched">Editora com valor
+              <strong>Inválido</strong></span>
+            <span *ngIf="form.get('editora')?.hasError('editora') && form.get('editora')?.touched">Editora inválido</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Alugado por:</mat-label>
+            <input formControlName="alugadoPor" matInput placeholder="Insira o cliente" autocomplete="off">
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('alugadoPor')?.hasError('required') && form.get('alugadoPor')?.touched">Cliente com valor
+              <strong>Inválido</strong></span>
+            <span *ngIf="form.get('alugadoPor')?.hasError('alugadoPor') && form.get('alugadoPor')?.touched">Cliente inválido</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <input formControlName="categoria" matInput placeholder="Insira a categoria" autocomplete="off">
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('categoria')?.hasError('required') && form.get('categoria')?.touched">Categoria sem
+              <strong>valor</strong></span>
+            <span *ngIf="form.get('categoria')?.hasError('maxlength')">Categoria com muitas caracteres</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <mat-form-field>
+            <mat-label>Ano da publicação</mat-label>
+            <input [max]="maxDate" formControlName="anoPublicacao" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('anoPublicacao')?.hasError('required') && form.get('anoPublicacao')?.touched">Data de
+              publição com valor <strong>Inválido</strong></span>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button type="button" (click)="cancelar()" mat-button>Cancelar</button>
+      <button color="primary" [disabled]="form.invalid" type="submit" mat-button cdkFocusInitial>Adicionar livro</button>
+    </mat-dialog-actions>
+  </form>

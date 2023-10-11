@@ -7,4 +7,5 @@ export interface Livro {
     isbn: string;
     anoPublicacao: Date;
     statusLivro: string;
+    alugadoPor: string;
 }

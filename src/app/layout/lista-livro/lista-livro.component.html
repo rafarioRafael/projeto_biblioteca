@@ -30,16 +30,20 @@
                 <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
             </ng-container>
             <ng-container matColumnDef="anoPublicacao">
-                <th mat-header-cell *matHeaderCellDef> Data da publicação </th>
-                <td mat-cell *matCellDef="let element"> {{element.ano_publicacao | date: 'dd/MM/yyyy'}} </td>
+                <th mat-header-cell *matHeaderCellDef> Ano da publicação </th>
+                <td mat-cell *matCellDef="let element"> {{element.ano_publicacao | date: 'yyyy'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="alugadoPor">
+                <th mat-header-cell *matHeaderCellDef> Alugado por: </th>
+                <td mat-cell *matCellDef="let element"> {{element.alugadoPor }} </td>
             </ng-container>
             <ng-container matColumnDef="acao">
                 <th mat-header-cell *matHeaderCellDef> Ação </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="mini-fab" (click)="addEditarLivro(element.id_clientes)" mat-mini-fab color="primary" matTooltip="Editar informações">
+                    <button class="mini-fab" (click)="addEditarLivro(element.id_livro)" mat-mini-fab color="primary" matTooltip="Editar informações">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button class="mini-fab" (click)="deletarLivro(element.id_clientes)" mat-mini-fab color="warn" matTooltip="Deletar livro">
+                    <button class="mini-fab" (click)="deletarLivro(element.id_livro)" mat-mini-fab color="warn" matTooltip="Deletar livro">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>
