@@ -12,7 +12,7 @@ import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.comp
 import { EditarDeletarClienteComponent } from './layout/editar-deletar-cliente/editar-deletar-cliente.component';
 import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
 import { EditarDeletarLivroComponent } from './layout/editar-deletar-livro/editar-deletar-livro.component';
-import { SettingsComponent } from './layout/settings/settings.component';
+
 
 
 
