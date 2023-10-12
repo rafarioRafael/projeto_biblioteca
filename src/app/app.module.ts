@@ -11,14 +11,14 @@ import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.comp
 import { EditarDeletarClienteComponent } from './layout/editar-deletar-cliente/editar-deletar-cliente.component';
 import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
 import { EditarDeletarLivroComponent } from './layout/editar-deletar-livro/editar-deletar-livro.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { SettingsComponent } from './layout/settings/settings.component';
+
 
 
 
 //Modulos
 import { SharedModule } from './shared/shared.module';
-import { SettingsComponent } from './layout/settings/settings.component';
+
 
 @NgModule({
   declarations: [
@@ -36,9 +36,7 @@ import { SettingsComponent } from './layout/settings/settings.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    FormsModule,
-    MatSidenavModule,
-    MatGridListModule
+    FormsModule
     
   ],
   providers: [],
