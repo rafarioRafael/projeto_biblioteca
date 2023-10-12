@@ -11,27 +11,20 @@ import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.comp
 import { EditarDeletarClienteComponent } from './layout/editar-deletar-cliente/editar-deletar-cliente.component';
 import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
 import { EditarDeletarLivroComponent } from './layout/editar-deletar-livro/editar-deletar-livro.component';
-<<<<<<< HEAD
 import { SettingsComponent } from './layout/settings/settings.component';
-=======
-
->>>>>>> 50516b7692b135e9d55c7c35d17228b6429762b2
 
 
 
 
 //Modulos
 import { SharedModule } from './shared/shared.module';
-<<<<<<< HEAD
-
-=======
->>>>>>> 50516b7692b135e9d55c7c35d17228b6429762b2
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    SettingsComponent,
     ListaClienteComponent,
     EditarDeletarClienteComponent,
     ListaLivroComponent,
@@ -42,12 +35,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-<<<<<<< HEAD
     FormsModule
-=======
-    FormsModule,
-   
->>>>>>> 50516b7692b135e9d55c7c35d17228b6429762b2
     
   ],
   providers: [],
