@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
- 
-
->>>>>>> 74ff75aa20f45aa932fa12003d9539ad73604503
 <header>
   <mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
@@ -15,9 +10,9 @@
     </button>
     <mat-menu #menu_account="matMenu" class="account-menu">
       <button mat-menu-item class="botao-menu">Meu perfil
-      <mat-icon>account_circle</mat-icon></button>
+        <mat-icon>account_circle</mat-icon></button>
       <button mat-menu-item class="botao-menu" (click)="fazerLogout()">Sair
-      <mat-icon>exit_to_app</mat-icon></button>
+        <mat-icon>exit_to_app</mat-icon></button>
     </mat-menu>
     <button mat-icon-button class="example-icon" [routerLink]="['/settings']">
       <mat-icon>settings</mat-icon>
@@ -28,61 +23,61 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item><mat-icon>assignment_ind</mat-icon>Cadastro de livros</a>
-<<<<<<< HEAD
-      <a mat-list-item [routerLink]="['/livros']">Livros</a>
-=======
-
-      <a mat-list-item><mat-icon>book</mat-icon>Livros</a>
->>>>>>> 74ff75aa20f45aa932fa12003d9539ad73604503
+      <a mat-list-item [routerLink]="['/livros']"><mat-icon>book</mat-icon>Livros</a>
       <a mat-list-item [routerLink]="['/clientes']">Clientes</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content style="height: 88vh;">
-<div class="total">
-   <div class="meioPrimeiro">
-    <div class="imagen">
-      <img mat-card-image src="https://images.pexels.com/photos/207636/pexels-photo-207636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      alt="Deu certo" style="height: 450px; margin-top: 5px; width: 800px;">
-    </div>
-    
-   
-      <div class="submeio">
-        <h1 style="text-align: center;">Nossa Historia</h1>
-        <p>
-          A nossa Biblioteca comeco nos ano de 2015, com 
-          uma estrutura pequena em Guarulhos perto da Univers
-          idade da ung, em parceria com a faculdade alguns alunos pe
-          gam emprestados livros. mas isso funciona tambem para o publico a
-          berto fora da faculdade, a cada ano nos invova na nossa Biblioteca, 
-          temos uma variedade enormes de livros que pode te entreter, desde a div
-          ina comedia de dante aos apaixonado em Shaskeper. Visite-nos.
-        </p>
-      </div>
-      <div class="meioduplo">
-        <div class="primeiro"> 
+    <div class="total">
+      <div class="meioPrimeiro">
+        <div class="imagen">
+          <img mat-card-image
+            src="https://images.pexels.com/photos/207636/pexels-photo-207636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Deu certo" style="height: 450px; margin-top: 5px; width: 800px;">
+        </div>
+        <div class="submeio">
+          <h1 style="text-align: center;">Nossa Historia</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius incidunt animi dolores aliquam ipsam fuga tempore dolor voluptatibus quaerat enim?
-        </p>
-      </div>
-  
-        <div class="segundo">
-          <p>
-            What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s,
+            Nossa biblioteca teve início em 2015, localizada em uma estrutura modesta próxima à Universidade UNG,
+            estabelecendo uma colaboração com a instituição. Inicialmente, os alunos tinham a oportunidade de emprestar
+            livros, mas com o tempo, ampliamos nossos serviços para atender também ao público em geral, não vinculado à
+            faculdade. A cada ano, buscamos aprimorar nossa biblioteca, disponibilizando uma ampla gama de títulos para
+            cativar o interesse de nossos visitantes. Em nossas prateleiras, você encontrará desde a obra-prima "A
+            Divina Comédia" de Dante até as apaixonantes criações de Shakespeare. Convidamos você a nos fazer uma visita
+            e descobrir o mundo de conhecimento que temos a oferecer.
           </p>
-         </div>
-      </div>
-      <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>
-          <img  mat-card-image src="https://i.pinimg.com/564x/79/f9/83/79f98337d774204f3637972e6772b550.jpg" alt="club dos livros" style="width: 350px; height: 90%; border-radius: 10px; border: solid;">
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <img  mat-card-image src="https://i.pinimg.com/564x/33/12/6f/33126ff6a09ec65bced0061b4a1df4c6.jpg" alt="club dos livros" style="width: 350px; height: 90%; border-radius: 10px"> 
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-</div>
+        </div>
+        <div class="meioduplo">
+          <div class="primeiro">
+            <p>
+              Uma biblioteca é um refúgio de conhecimento, um local onde as palavras ganham vida e as mentes se
+              aventuram por mundos inexplorados. Nas estantes, os livros são portas para o passado, janelas para o
+              presente e portais para o futuro. É um lugar onde o silêncio e a curiosidade se encontram, onde as
+              histórias se entrelaçam e onde o aprendizado é infinito. Uma biblioteca é o coração pulsante da cultura,
+              um tesouro para ser explorado por todos aqueles que anseiam por descobertas intelectuais e enriquecimento
+              pessoal.
+            </p>
+          </div>
 
+          <div class="segundo">
+            <p>
+              What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
+              and typesetting industry. Lorem Ipsum has been the industry's standard
+              dummy text ever since the 1500s,
+            </p>
+          </div>
+        </div>
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>
+            <img mat-card-image src="https://i.pinimg.com/564x/79/f9/83/79f98337d774204f3637972e6772b550.jpg"
+              alt="club dos livros" style="width: 350px; height: 90%; border-radius: 10px; border: solid;">
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <img mat-card-image src="https://i.pinimg.com/564x/33/12/6f/33126ff6a09ec65bced0061b4a1df4c6.jpg"
+              alt="club dos livros" style="width: 350px; height: 90%; border-radius: 10px">
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

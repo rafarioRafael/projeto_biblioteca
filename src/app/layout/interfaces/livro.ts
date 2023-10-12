@@ -5,7 +5,7 @@ export interface Livro {
     categoria: string;
     titulo: string;
     isbn: string;
-    anoPublicacao: Date;
+    ano_publicacao: Date;
     statusLivro: string;
     alugadoPor: string;
 }

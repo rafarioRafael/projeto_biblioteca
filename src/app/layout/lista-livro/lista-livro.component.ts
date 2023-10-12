@@ -14,7 +14,7 @@ import { EditarDeletarLivroComponent } from '../editar-deletar-livro/editar-dele
   styleUrls: ['./lista-livro.component.scss']
 })
 export class ListaLivroComponent {
-  displayedColumns: string[] = ['titulo', 'autor', 'editora', 'categoria', 'anoPublicacao', 'alugadoPor', 'acao'];
+  displayedColumns: string[] = ['titulo', 'autor', 'editora', 'categoria', 'isbn', 'ano_publicacao', 'alugadoPor',  'acao'];
   dataSource: MatTableDataSource<Livro>;
   loading: boolean = false;
 
@@ -33,6 +33,8 @@ export class ListaLivroComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
+  
 
   obterLivros() {
     this.loading = true;

@@ -67,16 +67,24 @@
           </div>
         </div>
       </div>
+      <!-- <div class="row">
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>ISBN</mat-label>
+            <input formControlName="isbn" [disabled]="isDisabled" matInput placeholder="Insira a categoria" autocomplete="off">
+          </mat-form-field>
+        </div>
+      </div> -->
       <div class="row">
         <div class="column">
           <mat-form-field>
             <mat-label>Ano da publicação</mat-label>
-            <input [max]="maxDate" formControlName="anoPublicacao" matInput [matDatepicker]="picker">
+            <input [max]="maxDate" formControlName="ano_publicacao" matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <div class="error">
-            <span *ngIf="form.get('anoPublicacao')?.hasError('required') && form.get('anoPublicacao')?.touched">Data de
+            <span *ngIf="form.get('ano_publicacao')?.hasError('required') && form.get('ano_publicacao')?.touched">Data de
               publição com valor <strong>Inválido</strong></span>
           </div>
         </div>
