@@ -28,6 +28,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -59,7 +60,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
 
 
   ],
@@ -87,7 +89,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
 
   ]
 })

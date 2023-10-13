@@ -11,10 +11,12 @@ export class LivroService {
 
   private myAppUrl: string;
   private myApiUrl: string;
+  private myApiTituloUrl: string;
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'api/livros/'
+    this.myApiTituloUrl = 'api/titulos'
   }
 
   getLivros(): Observable<Livro[]> {
@@ -36,6 +38,10 @@ export class LivroService {
 
   updateLivro(id: number, livro: Livro): Observable<void> {
     return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`, livro);
+  }
+
+  getTitulos(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.myAppUrl}${this.myApiTituloUrl}`); // Substitua pela rota real que busca os títulos no seu servidor.
   }
 
   generateRandomISBN(): string {

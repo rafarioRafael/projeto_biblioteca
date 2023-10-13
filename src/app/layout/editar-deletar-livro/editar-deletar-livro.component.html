@@ -6,9 +6,13 @@
     <mat-dialog-content class="mat-typography">
       <div class="row">
         <div class="column">
-          <mat-form-field appearance="fill">
+          <mat-form-field>
             <mat-label>Titulo do livro</mat-label>
-            <input formControlName="titulo" matInput placeholder="Insira o titulo" autocomplete="off">
+            <mat-select>
+              <mat-option *ngFor="let titulo of titulos" [value]="titulo.titulo">
+                {{ titulo.titulo }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <div class="error">
             <span *ngIf="form.get('titulo')?.hasError('required') && form.get('titulo')?.touched">Titulo com valor
@@ -56,9 +60,13 @@
       </div>
       <div class="row">
         <div class="column">
-          <mat-form-field appearance="fill">
+          <mat-form-field>
             <mat-label>Categoria</mat-label>
-            <input formControlName="categoria" matInput placeholder="Insira a categoria" autocomplete="off">
+            <mat-select>
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.value">
+                {{categoria.viewValue}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
           <div class="error">
             <span *ngIf="form.get('categoria')?.hasError('required') && form.get('categoria')?.touched">Categoria sem
@@ -67,14 +75,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="column">
-          <mat-form-field appearance="fill">
-            <mat-label>ISBN</mat-label>
-            <input formControlName="isbn" [disabled]="isDisabled" matInput placeholder="Insira a categoria" autocomplete="off">
-          </mat-form-field>
-        </div>
-      </div> -->
       <div class="row">
         <div class="column">
           <mat-form-field>

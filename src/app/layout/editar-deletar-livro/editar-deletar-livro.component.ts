@@ -18,6 +18,7 @@ export class EditarDeletarLivroComponent {
   operacao: string = 'Adicionar ';
   id: number | undefined;
   isDisabled: boolean = true;
+  titulos: any[] = [];
 
   constructor(public dialogRef: MatDialogRef<EditarDeletarLivroComponent>,
     private fb: FormBuilder, private _livroService: LivroService, private _snackBar: MatSnackBar,
@@ -39,6 +40,10 @@ export class EditarDeletarLivroComponent {
 
   ngOnInit(): void {
     this.eEditavel(this.id)
+    this._livroService.getTitulos().subscribe((data: any) => {
+      this.titulos = data;
+      console.log(this.titulos)
+    });
   }
 
   eEditavel(id: number | undefined) {
@@ -100,6 +105,24 @@ export class EditarDeletarLivroComponent {
 
     
   }
+  categorias: any[] = [
+    {value: '1', viewValue: 'Terror'},
+    {value: '2', viewValue: 'Fantasia'},
+    {value: '3', viewValue: 'Ficção-Científica'},
+    {value: '4', viewValue: 'Ação e aventura'},
+    {value: '5', viewValue: 'Ficção-Policial'},
+    {value: '6', viewValue: 'Thriller e suspense'},
+    {value: '7', viewValue: 'Romance'},
+    {value: '8', viewValue: 'Novela'},
+    {value: '9', viewValue: 'Graphic novel'},
+    {value: '10', viewValue: 'Conto'},
+    {value: '11', viewValue: 'Young adult'},
+    {value: '12', viewValue: 'New adult'},
+    {value: '13', viewValue: 'Infantil'},
+    {value: '14', viewValue: 'Biografia'},
+
+
+  ];
 
   openSnackBar(operacao: string) {
     this._snackBar.open(`Livro ${operacao}(a)`, '', {

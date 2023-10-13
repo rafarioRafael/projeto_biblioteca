@@ -1,6 +1,7 @@
 import express, { Application } from 'express';
 import routesClientes from '../routes/cliente.routes';
 import routesLivros from '../routes/livro.routes';
+import routesTitulos from '../routes/titulo.routes'
 import connection from '../db/connection';
 import cors from 'cors';
 
@@ -31,6 +32,7 @@ class Server {
 
         this.app.use('/api/clientes', routesClientes);
         this.app.use('/api/livros', routesLivros);
+        this.app.use('/api/titulos', routesTitulos);
     }
 
     conectarDB() {
