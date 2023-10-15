@@ -14,7 +14,7 @@ import { EditarDeletarLivroComponent } from '../editar-deletar-livro/editar-dele
   styleUrls: ['./lista-livro.component.scss']
 })
 export class ListaLivroComponent {
-  displayedColumns: string[] = ['titulo', 'autor', 'editora', 'categoria', 'isbn', 'ano_publicacao', 'alugadoPor',  'acao'];
+  displayedColumns: string[] = ['titulo', 'alugadoPor', 'data_inicial', 'acao'];
   dataSource: MatTableDataSource<Livro>;
   loading: boolean = false;
 

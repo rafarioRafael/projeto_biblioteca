@@ -5,6 +5,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LivroService } from 'src/app/services/livro.service';
 import { Livro } from '../interfaces/livro';
+import { format } from 'date-fns';
+import { addDays } from 'date-fns';
 
 @Component({
   selector: 'app-editar-deletar-livro',
@@ -32,7 +34,8 @@ export class EditarDeletarLivroComponent {
       editora: ['', Validators.required],
       categoria: ['', [Validators.required, Validators.maxLength(60)]],
       isbn: ['1', Validators.required],
-      ano_publicacao: [null, Validators.required],
+      data_inicial: [new Date(), Validators.required],
+      data_final: [addDays(new Date(), 30), Validators.required],
       alugadoPor: ['', Validators.required]
     })
     this.id = data.id
@@ -60,14 +63,13 @@ export class EditarDeletarLivroComponent {
 
   getLivro(id: number) {
     this._livroService.getLivro(id).subscribe(data => {
+      const data_inicial = format(new Date(data.data_inicial), 'dd/MM/yyyy');
+      const data_final = format(new Date(data.data_final), 'dd/MM/yyyy');
       this.form.patchValue({
-        titulo: data.titulo,
-        autor: data.autor,
-        editora: data.editora,
-        categoria: data.categoria,
-        isbn: data.isbn,
-        ano_publicacao: new Date(data.ano_publicacao),
-        alugadoPor: data.alugadoPor
+        titulo: data.titulo,  
+        alugadoPor: data.alugadoPor,
+        data_inicial: data_inicial,
+        data_final: data_final
       })
     })
   }
@@ -78,20 +80,22 @@ export class EditarDeletarLivroComponent {
 
   addEditarLivro() {
 
-    if (this.form.invalid) {
-      return;
-    }
+    // if (this.form.invalid) {
+    //   return;
+    // }
 
     const livro: Livro = {
       titulo: this.form.value.titulo,
-      autor: this.form.value.autor,
-      editora: this.form.value.editora,
-      categoria: this.form.value.categoria,
-      ano_publicacao: this.form.value.ano_publicacao.toISOString().slice(0, 4),
-      isbn: this.form.value.isbn,
-      statusLivro: this.form.value.statusLivro,
-      alugadoPor: this.form.value.alugadoPor
-    }
+      
+      //isbn: this.form.value.isbn,
+      
+      alugadoPor: this.form.value.alugadoPor,
+      data_inicial: this.form.value.data_inicial.toISOString().slice(0, 10),
+      data_final: this.form.value.data_final.toISOString().slice(0, 10),
+      
+    } 
+    console.log(livro.data_inicial)
+    console.log(livro.data_final)
     this.loading = true;
 
     if(this.id === undefined) {
@@ -107,25 +111,7 @@ export class EditarDeletarLivroComponent {
     }
     this.loading = false;
     this.dialogRef.close(true);
-
-    
   }
-  categorias: any[] = [
-    {value: '1', viewValue: 'Terror'},
-    {value: '2', viewValue: 'Fantasia'},
-    {value: '3', viewValue: 'Ficção-Científica'},
-    {value: '4', viewValue: 'Ação e aventura'},
-    {value: '5', viewValue: 'Ficção-Policial'},
-    {value: '6', viewValue: 'Thriller e suspense'},
-    {value: '7', viewValue: 'Romance'},
-    {value: '8', viewValue: 'Novela'},
-    {value: '9', viewValue: 'Graphic novel'},
-    {value: '10', viewValue: 'Conto'},
-    {value: '11', viewValue: 'Young adult'},
-    {value: '12', viewValue: 'New adult'},
-    {value: '13', viewValue: 'Infantil'},
-    {value: '14', viewValue: 'Biografia'},
-  ];
 
   openSnackBar(operacao: string) {
     this._snackBar.open(`Livro ${operacao}(a)`, '', {

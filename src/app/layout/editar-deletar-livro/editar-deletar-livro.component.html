@@ -20,7 +20,7 @@
             <span *ngIf="form.get('titulo')?.hasError('maxlength')">Titulo com muitas caracteres</span>
           </div>
         </div>
-        <div class="column">
+        <!-- <div class="column">
           <mat-form-field appearance="fill">
             <mat-label>Autor</mat-label>
             <input formControlName="autor" matInput placeholder="Insira o autor" autocomplete="off">
@@ -30,9 +30,9 @@
               valor <strong>Inválido</strong></span>
             <span *ngIf="form.get('autor')?.hasError('maxlength')">Autor com muitas caracteres</span>
           </div>
-        </div>
+        </div> -->
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="column">
           <mat-form-field appearance="fill">
             <mat-label>Editora</mat-label>
@@ -44,7 +44,7 @@
             <span *ngIf="form.get('editora')?.hasError('editora') && form.get('editora')?.touched">Editora inválido</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="column">
           <mat-form-field>
@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="column">
           <mat-form-field>
             <mat-label>Categoria</mat-label>
@@ -78,24 +78,27 @@
             <span *ngIf="form.get('categoria')?.hasError('maxlength')">Categoria com muitas caracteres</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="column">
           <mat-form-field>
-            <mat-label>Ano da publicação</mat-label>
-            <input [max]="maxDate" formControlName="ano_publicacao" matInput [matDatepicker]="picker">
+            <mat-label>Data inicial</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date" formControlName="data_inicial">
+              <input matEndDate placeholder="End date" formControlName="data_final">
+            </mat-date-range-input>
+            <!-- <input [max]="maxDate"  matInput [matDatepicker]="picker"> -->
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <div class="error">
-            <span *ngIf="form.get('ano_publicacao')?.hasError('required') && form.get('ano_publicacao')?.touched">Data de
-              publição com valor <strong>Inválido</strong></span>
-          </div>
+          <!-- <div class="error">
+            <span *ngIf="form.get('data_inicial')?.hasError('required') && form.get('data_inicial')?.touched">Data inicial com valor <strong>Inválido</strong></span>
+          </div> -->
         </div>
       </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button type="button" (click)="cancelar()" mat-button>Cancelar</button>
-      <button color="primary" [disabled]="form.invalid" type="submit" mat-button cdkFocusInitial>Adicionar livro</button>
+      <button color="primary" type="submit" mat-button cdkFocusInitial>Adicionar livro</button>
     </mat-dialog-actions>
   </form>

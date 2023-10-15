@@ -70,6 +70,19 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>QTD</mat-label>
+            <input formControlName="qtd" matInput placeholder="Insira a quantidade" autocomplete="off">
+          </mat-form-field>
+          <div class="error">
+            <span *ngIf="form.get('qtd')?.hasError('required') && form.get('qtd')?.touched">qtd com valor
+              <strong>Inválido</strong></span>
+            <span *ngIf="form.get('qtd')?.hasError('qtd') && form.get('qtd')?.touched">qtd inválido</span>
+          </div>
+        </div>
+      </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button type="button" (click)="cancelar()" mat-button>Cancelar</button>

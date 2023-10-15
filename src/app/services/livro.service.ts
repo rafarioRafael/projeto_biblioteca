@@ -30,11 +30,12 @@ export class LivroService {
   }
 
   addLivro(livro: Livro): Observable<void> {
-    livro.isbn = this.generateRandomISBN();
+    //livro.isbn = this.generateRandomISBN();
     return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`, livro);
   }
 
   getLivro(id: number): Observable<Livro> {
+    
     return this.http.get<Livro>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
 
@@ -50,12 +51,12 @@ export class LivroService {
     return this.http.get<any[]>(`${this.myAppUrl}${this.myApiNomeUrl}`);
   }
 
-  generateRandomISBN(): string {
-    let isbn = '978'; // Prefixo comum para livros
-    for (let i = 3; i < 13; i++) {
-      isbn += Math.floor(Math.random() * 10).toString();
-    }
-    return isbn;
-  }
+  // generateRandomISBN(): string {
+  //   let isbn = '978'; // Prefixo comum para livros
+  //   for (let i = 3; i < 13; i++) {
+  //     isbn += Math.floor(Math.random() * 10).toString();
+  //   }
+  //   return isbn;
+  // }
 
 }

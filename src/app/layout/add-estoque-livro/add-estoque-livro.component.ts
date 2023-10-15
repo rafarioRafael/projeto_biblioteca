@@ -27,7 +27,8 @@ export class AddEstoqueLivroComponent {
       editora: ['', Validators.required],
       genero: ['', [Validators.required, Validators.maxLength(60)]],
       isbn: ['1', Validators.required],
-      ano_publicacao: [null, [Validators.required, Validators.maxLength(4)]]
+      ano_publicacao: [null, [Validators.required, Validators.maxLength(4)]],
+      qtd: ['', Validators.required]
     })
     this.id = data.id
   }
@@ -51,7 +52,8 @@ export class AddEstoqueLivroComponent {
         editora: data.editora,
         genero: data.genero,
         isbn: data.isbn,
-        ano_publicacao: data.ano_publicacao
+        ano_publicacao: data.ano_publicacao,
+        qtd: data.qtd
       })
     })
   }
@@ -73,6 +75,7 @@ export class AddEstoqueLivroComponent {
       genero: this.form.value.genero,
       isbn: this.form.value.isbn,
       ano_publicacao: this.form.value.ano_publicacao,
+      qtd: this.form.value.qtd
     }
     this.loading = true;
 
