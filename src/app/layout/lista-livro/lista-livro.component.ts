@@ -14,7 +14,7 @@ import { EditarDeletarLivroComponent } from '../editar-deletar-livro/editar-dele
   styleUrls: ['./lista-livro.component.scss']
 })
 export class ListaLivroComponent {
-  displayedColumns: string[] = ['titulo', 'alugadoPor', 'data_inicial', 'acao'];
+  displayedColumns: string[] = ['titulo', 'alugadoPor', 'data_inicial', 'data_final', 'acao'];
   dataSource: MatTableDataSource<Livro>;
   loading: boolean = false;
 
@@ -45,6 +45,8 @@ export class ListaLivroComponent {
       this.dataSource.sort = this.sort;
     })
   }
+
+  
 
 
 
@@ -82,6 +84,14 @@ export class ListaLivroComponent {
     this._snackBar.open('Livro excluido(a)', '', {
       duration: 2000
 
+    });
+  }
+
+  atribuirLivro(idLivro: number, idPessoa: number) {
+    this.loading = true;
+    this._livroService.atribuirLivro(idLivro, idPessoa).subscribe(() => {
+      this.obterLivros(); // Atualize a lista de livros após a atribuição.
+      //this.openSnackBar();
     });
   }
 

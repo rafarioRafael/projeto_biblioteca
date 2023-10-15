@@ -51,6 +51,15 @@ export class LivroService {
     return this.http.get<any[]>(`${this.myAppUrl}${this.myApiNomeUrl}`);
   }
 
+  // atribuirLivro(idLivro: number, idPessoa: number): Observable<void> {
+  //   return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}atribuir/${idLivro}`, { idPessoa });
+  // }
+
+  atribuirLivro(idLivro: number, idPessoa: number): Observable<void> {
+    const requestBody = { idLivro, idPessoa };
+    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}atribuir`, requestBody);
+  }
+  
   // generateRandomISBN(): string {
   //   let isbn = '978'; // Prefixo comum para livros
   //   for (let i = 3; i < 13; i++) {
