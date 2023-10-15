@@ -6,13 +6,9 @@
     <mat-dialog-content class="mat-typography">
       <div class="row">
         <div class="column">
-          <mat-form-field >
-            <mat-label>Titulo do livro</mat-label>
-            <mat-select formControlName="titulo">
-              <mat-option *ngFor="let titulo of titulos" [value]="titulo.titulo">
-                {{ titulo.titulo }}
-              </mat-option>
-            </mat-select>
+          <mat-form-field appearance="fill">
+            <mat-label>Titulo</mat-label>
+            <input formControlName="titulo" matInput placeholder="Insira o titulo" autocomplete="off">
           </mat-form-field>
           <div class="error">
             <span *ngIf="form.get('titulo')?.hasError('required') && form.get('titulo')?.touched">Titulo com valor
@@ -48,48 +44,29 @@
       <div class="row">
         <div class="column">
           <mat-form-field>
-            <mat-label>Alugado por</mat-label>
-            <mat-select formControlName="alugadoPor">
-              <mat-option *ngFor="let alugadoPor of alugadosPor" [value]="alugadoPor.nome">
-                {{ alugadoPor.nome }}
+            <mat-label>Genero</mat-label>
+            <mat-select formControlName="genero">
+              <mat-option *ngFor="let genero of generos" [value]="genero.viewValue">
+                {{genero.viewValue}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <div class="error">
-            <span *ngIf="form.get('alugadoPor')?.hasError('required') && form.get('alugadoPor')?.touched">Cliente com valor
-              <strong>Inválido</strong></span>
-            <span *ngIf="form.get('alugadoPor')?.hasError('alugadoPor') && form.get('alugadoPor')?.touched">Cliente inválido</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column">
-          <mat-form-field>
-            <mat-label>Categoria</mat-label>
-            <mat-select formControlName="categoria">
-              <mat-option *ngFor="let categoria of categorias" [value]="categoria.viewValue">
-                {{categoria.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <div class="error">
-            <span *ngIf="form.get('categoria')?.hasError('required') && form.get('categoria')?.touched">Categoria sem
+            <span *ngIf="form.get('categoria')?.hasError('required') && form.get('categoria')?.touched">Genero sem
               <strong>valor</strong></span>
-            <span *ngIf="form.get('categoria')?.hasError('maxlength')">Categoria com muitas caracteres</span>
+            <span *ngIf="form.get('categoria')?.hasError('maxlength')">Genero com muitas caracteres</span>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="column">
-          <mat-form-field>
-            <mat-label>Ano da publicação</mat-label>
-            <input [max]="maxDate" formControlName="ano_publicacao" matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Ano de lancamento</mat-label>
+                <input formControlName="ano_publicacao" matInput placeholder="Insira o ano" autocomplete="off">
+              </mat-form-field>
           <div class="error">
-            <span *ngIf="form.get('ano_publicacao')?.hasError('required') && form.get('ano_publicacao')?.touched">Data de
-              publição com valor <strong>Inválido</strong></span>
+            <span *ngIf="form.get('ano_publicacao')?.hasError('required') && form.get('ano_publicacao')?.touched">Ano de
+              publicação com valor <strong>Inválido</strong></span>
           </div>
         </div>
       </div>

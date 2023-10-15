@@ -1,7 +1,9 @@
 import express, { Application } from 'express';
 import routesClientes from '../routes/cliente.routes';
 import routesLivros from '../routes/livro.routes';
+import routesEstoques from '../routes/estoque.routes'
 import routesTitulos from '../routes/titulo.routes'
+import routesNomes from '../routes/nome.routes'
 import connection from '../db/connection';
 import cors from 'cors';
 
@@ -32,7 +34,9 @@ class Server {
 
         this.app.use('/api/clientes', routesClientes);
         this.app.use('/api/livros', routesLivros);
+        this.app.use('/api/estoque', routesEstoques);
         this.app.use('/api/titulos', routesTitulos);
+        this.app.use('/api/nomes', routesNomes);
     }
 
     conectarDB() {

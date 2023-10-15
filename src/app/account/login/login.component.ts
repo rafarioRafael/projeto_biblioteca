@@ -21,7 +21,7 @@ export class LoginComponent {
   onSubmit() {
     const result = this.accountService.login(this.login)
     console.log(`Login efetuado: ${result}`);
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 
 }

@@ -5,6 +5,7 @@ import { LoginComponent } from './account/login/login.component';
 import { ListaClienteComponent } from './layout/lista-cliente/lista-cliente.component';
 import { ListaLivroComponent } from './layout/lista-livro/lista-livro.component';
 import { SettingsComponent } from './layout/settings/settings.component';
+import { EstoqueLivroComponent } from './layout/estoque-livro/estoque-livro.component';
 
 
 const routes: Routes = [
@@ -13,12 +14,13 @@ const routes: Routes = [
 
     children:
     [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'clientes', component: ListaClienteComponent},
       { path: 'livros', component: ListaLivroComponent},
-      { path: 'settings', component: SettingsComponent}
+      { path: 'settings', component: SettingsComponent},
+      { path: 'estoque', component: EstoqueLivroComponent}
     ]
   }
 ];

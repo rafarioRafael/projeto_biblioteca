@@ -19,6 +19,8 @@ import { EditarDeletarLivroComponent } from './layout/editar-deletar-livro/edita
 
 //Modulos
 import { SharedModule } from './shared/shared.module';
+import { EstoqueLivroComponent } from './layout/estoque-livro/estoque-livro.component';
+import { AddEstoqueLivroComponent } from './layout/add-estoque-livro/add-estoque-livro.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SharedModule } from './shared/shared.module';
     EditarDeletarClienteComponent,
     ListaLivroComponent,
     EditarDeletarLivroComponent,
-    SettingsComponent
+    SettingsComponent,
+    EstoqueLivroComponent,
+    AddEstoqueLivroComponent
   ],
   imports: [
     BrowserModule,

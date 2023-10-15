@@ -1,73 +1,57 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LivroService } from 'src/app/services/livro.service';
-import { Livro } from '../interfaces/livro';
+import { EstoqueService } from 'src/app/services/estoque.service';
+import { Estoque } from '../interfaces/estoque';
 
 @Component({
-  selector: 'app-editar-deletar-livro',
-  templateUrl: './editar-deletar-livro.component.html',
-  styleUrls: ['./editar-deletar-livro.component.scss']
+  selector: 'app-add-estoque-livro',
+  templateUrl: './add-estoque-livro.component.html',
+  styleUrls: ['./add-estoque-livro.component.scss']
 })
-export class EditarDeletarLivroComponent {
+export class AddEstoqueLivroComponent {
   form: FormGroup;
-  maxDate: Date;
   loading: boolean = false;
   operacao: string = 'Adicionar ';
   id: number | undefined;
   isDisabled: boolean = true;
-  titulos: any[] = [];
-  alugadosPor: any[] = [];
 
-  constructor(public dialogRef: MatDialogRef<EditarDeletarLivroComponent>,
-    private fb: FormBuilder, private _livroService: LivroService, private _snackBar: MatSnackBar,
-    private dateAdapter: DateAdapter<any>, @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.maxDate = new Date();
+  constructor(public dialogRef: MatDialogRef<AddEstoqueLivroComponent>,
+    private fb: FormBuilder, private _estoqueService: EstoqueService, private _snackBar: MatSnackBar, 
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.form = this.fb.group({
-      titulo: ['', [Validators.required, Validators.maxLength(20)]],
-      autor: ['', [Validators.required, Validators.maxLength(20)]],
+      titulo: ['', [Validators.required, Validators.maxLength(200)]],
+      autor: ['', [Validators.required, Validators.maxLength(200)]],
       editora: ['', Validators.required],
-      categoria: ['', [Validators.required, Validators.maxLength(60)]],
+      genero: ['', [Validators.required, Validators.maxLength(60)]],
       isbn: ['1', Validators.required],
-      ano_publicacao: [null, Validators.required],
-      alugadoPor: ['', Validators.required]
+      ano_publicacao: [null, [Validators.required, Validators.maxLength(4)]]
     })
     this.id = data.id
-    this.dateAdapter.setLocale('pt-br')
   }
 
   ngOnInit(): void {
     this.eEditavel(this.id)
-    this._livroService.getTitulos().subscribe((data: any) => {
-      this.titulos = data;
-      console.log(this.titulos)
-    });
-    this._livroService.getNomes().subscribe((data: any) => {
-      this.alugadosPor = data;
-      console.log(this.alugadosPor)
-    });
   }
 
   eEditavel(id: number | undefined) {
     if(id !== undefined) {
       this.operacao = 'Editar ';
-      this.getLivro(id)
+      this.getEstoque(id)
     }
   }
 
-  getLivro(id: number) {
-    this._livroService.getLivro(id).subscribe(data => {
+  getEstoque(id: number) {
+    this._estoqueService.getEstoque(id).subscribe(data => {
       this.form.patchValue({
         titulo: data.titulo,
         autor: data.autor,
         editora: data.editora,
-        categoria: data.categoria,
+        genero: data.genero,
         isbn: data.isbn,
-        ano_publicacao: new Date(data.ano_publicacao),
-        alugadoPor: data.alugadoPor
+        ano_publicacao: data.ano_publicacao
       })
     })
   }
@@ -82,26 +66,24 @@ export class EditarDeletarLivroComponent {
       return;
     }
 
-    const livro: Livro = {
+    const estoque: Estoque = {
       titulo: this.form.value.titulo,
       autor: this.form.value.autor,
       editora: this.form.value.editora,
-      categoria: this.form.value.categoria,
-      ano_publicacao: this.form.value.ano_publicacao.toISOString().slice(0, 4),
+      genero: this.form.value.genero,
       isbn: this.form.value.isbn,
-      statusLivro: this.form.value.statusLivro,
-      alugadoPor: this.form.value.alugadoPor
+      ano_publicacao: this.form.value.ano_publicacao,
     }
     this.loading = true;
 
     if(this.id === undefined) {
-      //Adicionar livro
-      this._livroService.addLivro(livro).subscribe(() => {
+      //Adicionar estoque
+      this._estoqueService.addEstoque(estoque).subscribe(() => {
         this.dialogRef.close(true)
       })
     } else {
-      //Editar livro
-      this._livroService.updateLivro(this.id, livro).subscribe(data => {
+      //Editar estoque
+      this._estoqueService.updateEstoque(this.id, estoque).subscribe(data => {
         this.openSnackBar('editado')
       })
     }
@@ -110,7 +92,7 @@ export class EditarDeletarLivroComponent {
 
     
   }
-  categorias: any[] = [
+  generos: any[] = [
     {value: '1', viewValue: 'Terror'},
     {value: '2', viewValue: 'Fantasia'},
     {value: '3', viewValue: 'Ficção-Científica'},
