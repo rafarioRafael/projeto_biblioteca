@@ -19,7 +19,7 @@ export const atribuirLivro = (req: Request, res: Response) => {
 
             // Se houver estoque disponível, você pode atribuir o livro
             connection.query(
-                'INSERT INTO tbl_livros (id_livro, id_pessoa) VALUES (?, ?)', [idLivro, idPessoa], (err, data) => {
+                'INSERT INTO cliente_livro (id_clientes, id_livros,is_active) VALUES (?, ?, ?)', [idPessoa,idLivro, true], (err, data) => {
                     if (err) {
                         return res.status(500).json({ error: 'Erro ao atribuir o livro' });
                     }
