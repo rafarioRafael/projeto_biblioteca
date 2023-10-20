@@ -22,6 +22,7 @@ export class EditarDeletarLivroComponent {
   isDisabled: boolean = true;
   titulos: any[] = [];
   alugadosPor: any[] = [];
+  //desativar data
 
   constructor(public dialogRef: MatDialogRef<EditarDeletarLivroComponent>,
     private fb: FormBuilder, private _livroService: LivroService, private _snackBar: MatSnackBar,
@@ -37,9 +38,10 @@ export class EditarDeletarLivroComponent {
       data_inicial: [new Date(), Validators.required],
       data_final: [addDays(new Date(), 30), Validators.required],
       alugadoPor: ['', Validators.required]
+      //addDays(new Date(), 30)
     })
     this.id = data.id
-    this.dateAdapter.setLocale('pt-br')
+    this.dateAdapter.setLocale('pt-br');
   }
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class EditarDeletarLivroComponent {
   }
 
   eEditavel(id: number | undefined) {
-    if(id !== undefined) {
+    if (id !== undefined) {
       this.operacao = 'Editar ';
       this.getLivro(id)
     }
@@ -63,16 +65,19 @@ export class EditarDeletarLivroComponent {
 
   getLivro(id: number) {
     this._livroService.getLivro(id).subscribe(data => {
-      const data_inicial = format(new Date(data.data_inicial), 'dd/MM/yyyy');
-      const data_final = format(new Date(data.data_final), 'dd/MM/yyyy');
+      // const data_inicial = format(new Date(data.data_inicial), 'dd/MM/yyyy');
+      // const data_final = format(new Date(data.data_final), 'dd/MM/yyyy');
+      const data_inicial = new Date(data.data_inicial);
+      const data_final = new Date(data.data_final);
       this.form.patchValue({
-        titulo: data.titulo,  
+        titulo: data.titulo,
         alugadoPor: data.alugadoPor,
         data_inicial: data_inicial,
         data_final: data_final
       })
     })
   }
+  
 
   cancelar() {
     this.dialogRef.close(false);
@@ -86,19 +91,18 @@ export class EditarDeletarLivroComponent {
 
     const livro: Livro = {
       titulo: this.form.value.titulo,
-      
-      //isbn: this.form.value.isbn,
-      
       alugadoPor: this.form.value.alugadoPor,
       data_inicial: this.form.value.data_inicial.toISOString().slice(0, 10),
       data_final: this.form.value.data_final.toISOString().slice(0, 10),
-      
-    } 
+      // data_inicial: this.form.value.data_inicial ? this.form.value.data_inicial.toISOString().slice(0, 10) : null,
+      // data_final: this.form.value.data_final ? this.form.value.data_final.toISOString().slice(0, 10) : null,
+
+    }
     console.log(livro.data_inicial)
     console.log(livro.data_final)
     this.loading = true;
 
-    if(this.id === undefined) {
+    if (this.id === undefined) {
       //Adicionar livro
       this._livroService.addLivro(livro).subscribe(() => {
         this.dialogRef.close(true)

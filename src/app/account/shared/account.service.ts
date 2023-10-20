@@ -12,7 +12,7 @@ export class AccountService {
   login(user: any) {
     return new Promise((resolve) => {
       const token = window.localStorage.getItem('token');
-      if (user.username == 'oi' && user.password == 'oi123') {
+      if (user.username == 'qwerty123' && user.password == 'qwerty') {
         if (!token) {
           window.localStorage.setItem('token', 'meu-token');
           this.router.navigate(['/login']);

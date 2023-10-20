@@ -83,7 +83,7 @@
         <div class="column">
           <mat-form-field>
             <mat-label>Data inicial</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
+            <mat-date-range-input>
               <input matStartDate placeholder="Start date" formControlName="data_inicial">
               <input matEndDate placeholder="End date" formControlName="data_final">
             </mat-date-range-input>
@@ -91,9 +91,9 @@
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <!-- <div class="error">
-            <span *ngIf="form.get('data_inicial')?.hasError('required') && form.get('data_inicial')?.touched">Data inicial com valor <strong>Inválido</strong></span>
-          </div> -->
+          <div class="error">
+            <span *ngIf="form.get('data_inicial')?.hasError('required') && form.get('data_final')?.hasError('required')">Não é possível alterar a<strong>data</strong></span>
+          </div>
         </div>
       </div>
     </mat-dialog-content>
