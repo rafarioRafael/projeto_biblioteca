@@ -14,7 +14,7 @@ import { AddEstoqueLivroComponent } from '../add-estoque-livro/add-estoque-livro
   styleUrls: ['./estoque-livro.component.scss']
 })
 export class EstoqueLivroComponent {
-  displayedColumns: string[] = ['titulo', 'autor', 'editora', 'genero', 'isbn', 'ano_publicacao', 'qtd',  'acao'];
+  displayedColumns: string[] = ['titulo', 'autor', 'editora', 'genero', 'isbn', 'ano_publicacao',  'acao'];
   dataSource: MatTableDataSource<Estoque>;
   loading: boolean = false;
 

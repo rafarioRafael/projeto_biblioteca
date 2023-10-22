@@ -6,5 +6,5 @@ export interface Estoque {
     genero: string;
     isbn: string;
     ano_publicacao: string;
-    qtd: number;
+    //qtd: number;
 }

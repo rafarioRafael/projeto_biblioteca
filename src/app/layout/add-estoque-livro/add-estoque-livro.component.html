@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 mat-dialog-title>{{ operacao }} Cliente</h2>
+    <h2 mat-dialog-title>{{ operacao }} Livro</h2>
     <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
   </div>
   <form [formGroup]="form" (ngSubmit)="addEditarLivro()">
@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="column">
           <mat-form-field appearance="fill">
             <mat-label>QTD</mat-label>
@@ -82,7 +82,7 @@
             <span *ngIf="form.get('qtd')?.hasError('qtd') && form.get('qtd')?.touched">qtd inválido</span>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button type="button" (click)="cancelar()" mat-button>Cancelar</button>
