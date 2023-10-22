@@ -24,8 +24,8 @@ export class AddEstoqueLivroComponent {
     this.form = this.fb.group({
       titulo: ['', [Validators.required, Validators.maxLength(200)]],
       autor: ['', [Validators.required, Validators.maxLength(200)]],
-      editora: ['', Validators.required],
-      genero: ['', [Validators.required, Validators.maxLength(60)]],
+      editora: ['', [Validators.required, Validators.maxLength(200)]],
+      genero: ['', [Validators.required, Validators.maxLength(600)]],
       isbn: ['1', Validators.required],
       ano_publicacao: [null, [Validators.required, Validators.maxLength(4)]],
       qtd: ['', Validators.required]

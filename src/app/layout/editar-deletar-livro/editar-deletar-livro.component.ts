@@ -30,10 +30,10 @@ export class EditarDeletarLivroComponent {
     this.maxDate = new Date();
 
     this.form = this.fb.group({
-      titulo: ['', [Validators.required, Validators.maxLength(20)]],
-      autor: ['', [Validators.required, Validators.maxLength(20)]],
-      editora: ['', Validators.required],
-      categoria: ['', [Validators.required, Validators.maxLength(60)]],
+      titulo: ['', [Validators.required, Validators.maxLength(200)]],
+      autor: ['', [Validators.required, Validators.maxLength(200)]],
+      editora: ['', [Validators.required, Validators.maxLength(200)]],
+      categoria: ['', [Validators.required, Validators.maxLength(600)]],
       isbn: ['1', Validators.required],
       data_inicial: [new Date(), Validators.required],
       data_final: [addDays(new Date(), 30), Validators.required],
