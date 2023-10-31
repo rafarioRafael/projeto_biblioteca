@@ -4,7 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Front-end**
+Run `ng s -o` for a dev server. The application will automatically reload if you change any of the source files.
+
+**Back-end**
+Navegate to folder server with 'cd server' and run 'nodemon dist/index.js'
+> **You must execute both Frond and Back in order to Run the official version**
 
 ## Code scaffolding
 
